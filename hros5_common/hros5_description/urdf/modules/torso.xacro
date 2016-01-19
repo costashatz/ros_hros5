@@ -6,7 +6,6 @@
 	<joint name="base_joint" type="fixed">
 		<parent link="base_link"/>
 		<child link="torso"/>
-		<origin xyz="0 0 0.24" rpy="0 0 0"/>
 	</joint>
 
 
@@ -21,10 +20,9 @@
 	</link>
 
 <!-- IMU properties -->
-<!--
-<joint name="imu_joint" type="floating">
-    <parent link="base_link"/>
-    <child link="torso"/>
+<joint name="imu_joint" type="fixed">
+    <parent link="torso"/>
+    <child link="imu_link"/>
     <origin xyz="0.0 0.0 0.033" rpy="0.0 0.0 0.0"/>
 </joint>
 
@@ -41,7 +39,7 @@
 
 	<gazebo>
         <plugin filename="libhector_gazebo_ros_imu.so" name="gazebo_ros_imu">
-          <bodyName>torso</bodyName>
+          <bodyName>imu_link</bodyName>
           <updateRate>50</updateRate>
           <serviceName>/hros5/imu_service</serviceName>
           <topicName>/hros5/imu</topicName>
@@ -50,6 +48,5 @@
           <rpyOffset>0 0 -0.703220730592</rpyOffset>
         </plugin>
       </gazebo>
--->
 
 </robot>
