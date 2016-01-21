@@ -36,7 +36,7 @@ public:
 protected:
     geometry_msgs::Twist gait_vel_;
     geometry_msgs::Point position_;
-    
+
     ros::Time current_time, last_time;
 double pose_x_; // pose/odometry
 double pose_y_; // pose/odometry
@@ -50,7 +50,6 @@ geometry_msgs::Quaternion imu_orientation_;
     void enableWalkCb(std_msgs::BoolConstPtr enable);
     void cmdVelCb(const geometry_msgs::Twist::ConstPtr& msg);
     void startActionCb(std_msgs::Int32 action);
-    void imuCb(const sensor_msgs::Imu& msg);
 
     // Subscriber
     ros::Subscriber torque_on_sub_;
@@ -58,7 +57,6 @@ geometry_msgs::Quaternion imu_orientation_;
     ros::Subscriber start_action_sub_;
     ros::Subscriber enable_walk_sub_;
     ros::Subscriber stand_sit_sub_;
-    ros::Subscriber imu_sub_;
 
     // Publisher
     tf::TransformBroadcaster tf_broadcaster_;
@@ -71,4 +69,3 @@ geometry_msgs::Quaternion imu_orientation_;
 }
 
 #endif
-
